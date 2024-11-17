@@ -1,0 +1,61 @@
+Exercice 1 : 
+
+1)
+
+git config --global user.name "Boukelmoun Imad"
+git config --global user.email "Boukelmoun1@gmail.com"
+
+2./
+
+-Le Makefile : sert à automatiser la compilation des fichiers en C.
+-Le Main : fichier main de c sert a appele et utiliser les fonctions declarer sur ppm.c 
+-Mandel.c : sert a générer une fractale de Mandelbrot
+-ppm.c : trace et affiche la fractale
+-pph.h : est une bibliotheque qui sert a lier les fichier main.c, mandel.c et ppm.c
+
+
+
+
+les binaires finaux:
+-main.c est compiler pour produire un executable test.
+-mandel.c est compiler pour produire un executable mandel.
+
+
+
+
+
+---Les fichiers sont référencés dans les binaires finaux de la facon suivante :
+
+                                    libppm.so
+                                        |
+                             -------------------------
+                            |                        |
+                        mandel.c                    main.c
+
+3)
+La documentation est sur le fichier ppm.h
+
+Exercice 2 :
+
+1./
+
+Sur le fichier mandel.c, On a modifier :
+-&amp par &
+-&lt par <
+-modifier ppm_image_setpixel en ppm_image_setpixela
+
+Sur le makefile, On a :
+-Rajouter la ligne LDFLAGS = -L. -lppm, car on utilisait -L et -lppm sont les definir.
+-Supprimer main.c, car on avait deja $<
+-definir BINARIES = test mandel et LIBRARIES = libppm.so 
+-modifier les emplacements des parametre -lppm -L...
+
+
+2./
+
+-La double boucle sert a parcourir la matrice des pixels.
+-Ligne 41 et 42 On initialise coordonnees complexe
+
+Execice 3
+
+1./ 
