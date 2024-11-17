@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
             ppm_image_setpixela(&im, i,j, grey, grey , grey );
         }
     }
-    //sauvegarder l'image dans m.ppm
+    //sauvegarder l'image dans m.ppm.
     ppm_image_dump( &im, "m.ppm");
     //liberation de la memoire
     ppm_image_release( &im );
