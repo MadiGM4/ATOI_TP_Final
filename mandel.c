@@ -44,7 +44,6 @@ int main(int argc, char *argv[])
             while(iter < ITER)
             {
                 double mod = cabs(z);
- 
                 if( TRSH < mod )
                 {
                     break;

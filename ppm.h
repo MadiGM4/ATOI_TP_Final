@@ -21,7 +21,8 @@ static inline void ppm_setpixel(struct ppm_pixel *px, unsigned char r, unsigned 
     px->r = r;
     px->g = g;
     px->b = b;
-}
+
+};
 
 /*
  * Cette structure contient les dimensions de l'image et un tableau de pixels.
@@ -43,6 +44,7 @@ int ppm_image_init(struct ppm_image *im, int w, int h);
 int ppm_image_release(struct ppm_image *im);
 
 
+
 static inline void ppm_image_setpixela(struct ppm_image *im, int x, int y, unsigned char r, unsigned char g, unsigned char b)
 {
     struct ppm_pixel *px = im->px + im->width * y + x;
@@ -54,5 +56,5 @@ static inline void ppm_image_setpixela(struct ppm_image *im, int x, int y, unsig
  */
 int ppm_image_dump(struct ppm_image *im, char *path);
 
-#endif /* PPM_H */
 
+#endif /* PPM_H */
