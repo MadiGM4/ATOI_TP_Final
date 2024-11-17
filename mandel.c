@@ -26,17 +26,18 @@ double cy( int y )
  
 int main(int argc, char *argv[])
 {
+    //creation d'un image PPM
     struct ppm_image im;
     ppm_image_init( &im , SIZEX , SIZEY );
  
     int i,j;
     double colref = 255.0/log(ITER);
- 
+    //parcourir la matrice des pixels
     for (i = 0; i < SIZEX; ++i) {
         for (j = 0; j < SIZEY; ++j) {
  
             unsigned long int iter = 0;
- 
+            //coordonnees complexe
             double complex c =  cx(i) + cy(j) * I;
             double complex z = 0;
  
@@ -58,8 +59,9 @@ int main(int argc, char *argv[])
             ppm_image_setpixela(&im, i,j, grey, grey , grey );
         }
     }
- 
+    //sauvegarder l'image dans m.ppm
     ppm_image_dump( &im, "m.ppm");
+    //liberation de la memoire
     ppm_image_release( &im );
  
  
