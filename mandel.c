@@ -65,7 +65,7 @@ double cy(int y) {
 
 int main(int argc, char *argv[]) {
   struct ppm_image im;
-  ppm_image_init(&amp; im, SIZEX, SIZEY);
+  ppm_image_init(&im, SIZEX, SIZEY);
 
   int i, j;
   int colref = log(ITER);
@@ -74,15 +74,13 @@ for (i = 0; i < SIZEX; ++i) {
         for (j = 0; j < SIZEY; ++j) {
  
             unsigned long int iter = 0;
- 
             double complex c =  cx(i) + cy(j) * I;
             double complex z = 0;
  
             while(iter < ITER)
             {
                 double mod = cabs(z);
- 
-                if( TRSH &lt; mod )
+                if( TRSH < mod )
                 {
                     break;
                 }
@@ -91,14 +89,13 @@ for (i = 0; i < SIZEX; ++i) {
  
                 iter++;
             }
- 
             struct col cc = getcol( log(iter), colref );
             ppm_image_setpixel(&im, i,j, cc.r, cc.g , cc.b );
         }
     }
 
-  ppm_image_dump(&amp; im, "m.ppm");
-  ppm_image_release(&amp; im);
+  ppm_image_dump(&im, "m.ppm");
+  ppm_image_release(&im);
 
   return 0;
 }
